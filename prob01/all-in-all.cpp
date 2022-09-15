@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main() {
+void solution() {
     std::string s, t;
     std::cin >> s >> t;
     int curr = 0;
@@ -10,4 +10,12 @@ int main() {
         }
     }
     std::cout << (curr == s.size() ? "Yes" : "No") << std::endl;
+}
+
+int main() {
+    int t;
+    std::cin >> t;
+    for (int i = 0; i < t; i++) {
+        solution();
+    }
 }
