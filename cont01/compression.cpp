@@ -22,12 +22,12 @@ int main() {
         string line;
         cin >> line;
         for (int j = 0; j < 3 * n; j++) {
-            cerr << j << " " << (int)(j / 3) << " " << num_blacks.size() << "\n";
             num_blacks.at((int)(j / 3)) += line[j] == '*' ? 1 : 0;
         }
         if ((i + 1) % 3 == 0) {
             cout << compress(num_blacks) << "\n";
             num_blacks.clear();
+            num_blacks.resize(n);
         }
     }
 }
