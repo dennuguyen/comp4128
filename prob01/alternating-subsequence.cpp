@@ -31,7 +31,7 @@ void solution() {
         prev_sign = curr_sign;
     }
     sum += max;
-    std::cout << sum << std::endl;
+    std::cout << sum;
 }
 
 int main() {

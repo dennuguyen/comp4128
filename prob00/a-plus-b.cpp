@@ -3,7 +3,7 @@
 void solution() {
     int a, b;
     std::cin >> a >> b;
-    std::cout << a + b << std::endl;
+    std::cout << a + b << "\n";
 }
 
 int main() {

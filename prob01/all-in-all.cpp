@@ -9,7 +9,7 @@ void solution() {
             curr++;
         }
     }
-    std::cout << (curr == s.size() ? "Yes" : "No") << std::endl;
+    std::cout << (curr == s.size() ? "Yes\n" : "No\n");
 }
 
 int main() {
