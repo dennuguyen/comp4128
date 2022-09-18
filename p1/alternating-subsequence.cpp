@@ -1,22 +1,23 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
 void solution() {
     // Get length of input.
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    // Get int array input.
-    std::vector<int> a;
+    // Get int64_t array input.
+    vector<int> a;
     for (int i = 0; i < n; i++) {
         int in;
-        std::cin >> in;
+        cin >> in;
         a.push_back(in);
     }
 
     // Get the max by size alternating subsequence.
-    int sum = 0;
-    int max = a[0];
+    int64_t sum = 0;
+    int64_t max = a[0];
     bool prev_sign = a[0] > 0 ? true : false;  // true/+, false/-
     for (int i = 0; i < n; i++) {
         // Check if sign has changed.
@@ -31,12 +32,12 @@ void solution() {
         prev_sign = curr_sign;
     }
     sum += max;
-    std::cout << sum;
+    cout << sum << "\n";
 }
 
 int main() {
     int t;
-    std::cin >> t;
+    cin >> t;
     for (int i = 0; i < t; i++) {
         solution();
     }
