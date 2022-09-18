@@ -1,21 +1,15 @@
 #include <iostream>
-
-void solution() {
-    std::string s, t;
-    std::cin >> s >> t;
-    int curr = 0;
-    for (auto const& i : t) {
-        if (s[curr] == i) {
-            curr++;
-        }
-    }
-    std::cout << (curr == s.size() ? "Yes\n" : "No\n");
-}
+using namespace std;
 
 int main() {
-    int t;
-    std::cin >> t;
-    for (int i = 0; i < t; i++) {
-        solution();
+    string s, t;
+    while (cin >> s >> t) {
+        int curr = 0;
+        for (auto const& i : t) {
+            if (s[curr] == i) {
+                curr++;
+            }
+        }
+        cout << (curr == s.size() ? "Yes\n" : "No\n");
     }
 }
