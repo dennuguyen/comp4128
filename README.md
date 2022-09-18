@@ -18,3 +18,9 @@
 ```
 ./a.out < input.txt > output.txt
 ```
+
+## Clong
+
+```
+./clong <file> && time ./a.out < in > output
+```
