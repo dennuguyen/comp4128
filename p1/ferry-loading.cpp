@@ -8,14 +8,25 @@ void solution() {
         std::cin >> cars[i];
     }
 
-    int trips = 0;
+    int mtrips = 0;
+    int mtime = 0;
+    int cn = 0;
     for (int i = 0; i < m; i++) {
-        if (i % n == 0) {
-            trips++;
+        cn++;
+
+        if (cn == n) {
+            mtime = cars[i] + t;
+            mtrips++;
+            if (i != m) cn = 0;
         }
     }
 
-    std::cout << cars[m - 1] + t << " " << trips << "\n";
+    if (cn < n) {
+        mtime = cars[m - 1] + t;
+        mtrips++;
+    }
+
+    std::cout << mtime << " " << mtrips << "\n";
 }
 
 int main() {
