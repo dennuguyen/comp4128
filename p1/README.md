@@ -59,13 +59,11 @@ When I was testing my algorithm, I had a stack overflow (if I remember correctly
 My first instinct to solve the problem was to apply the sliding window algorithm because:
 - There are `n` total cars and you can only take `m` at a time as the cars arrive (contiguous and ordered).
 
-I also noted that the algorithm may be greedy.
-
-When I wrote the variables to obtain the minimum time and trips, I realised that this is not required since:
-- The algorithm is greedy so we only care about the latest time the car is able to arrive.
+However, a sliding window algorithm would be complex to implement and not required since the cars are already ordered by time. The algorithm may be greedy:
+- We only care about the latest time the car is able to arrive (in hindsight, not true).
 - The number of trips is just how many groups of `n` cars the ferry can ferry at once.
 
-I got stuck on this solution as it was not passing a hidden test:
+A basis for the solution is the following:
 ```cpp
 #include <cmath>
 #include <iostream>
@@ -90,7 +88,45 @@ int main() {
 }
 ```
 
+> I made some submissions during this time which were tangentially irrelevant to my final algorithm. I have no idea what I was doing.
 
+After reflecting on the above algorithm, I made the following observations:
+- Cars are grouped in sizes of `n` **or less**.
+- The number of trips is independent from the time taken to make the trips.
+- Did not consider the trip durations of the previous groups. What if there was a long queue of cars that arrived at the same time?
 
+```cpp
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+void solution() {
+    int n, t, m;
+    cin >> n >> t >> m;
+    int cars[m];
+    for (int i = 0; i < m; i++) {
+        cin >> cars[i];
+    }
+
+    int ntrips = (int)ceil((double)m / n);
+    int mtime = 0;
+    for (int i = 0; i < m; i += n) {
+        int j = min(i + n - 1, m - 1);
+        mtime += cars[j] - cars[i] + t;
+    }
+
+    cout << mtime << " " << ntrips << "\n";
+}
+
+int main() {
+    int c;
+    cin >> c;
+    for (int i = 0; i < c; i++) {
+        solution();
+    }
+}
+```
+
+This is a more correct solution which did not account for return trips if there was a queue of cars.
 
 ## The Fair Nut and String
